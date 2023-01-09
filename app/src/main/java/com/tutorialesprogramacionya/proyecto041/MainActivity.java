@@ -80,30 +80,32 @@ public class MainActivity extends AppCompatActivity {
                mp1=MediaPlayer.create(this,R.raw.uno);
                break;
            case '2':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.dos);
                break;
            case '3':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.tres);
                break;
            case '4':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.cuatro);
                break;
            case '5':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.cinco);
                break;
            case '6':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.seis);
                break;
            case '7':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.siete);
                break;
            case '8':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.ocho);
                break;
            case '9':
-               mp1=MediaPlayer.create(this,R.raw.uno);
+               mp1=MediaPlayer.create(this,R.raw.nueve);
                break;
        }
+        assert mp1 != null;
+        mp1.setVolume(1.0f,1.0f);
         mp1.start();
         mp1.setOnCompletionListener((mediaPlayer -> {
             if (posicion<numeroRecordar.length()-1) {
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void agregarUnNumeroAlFinal() {
-        int ale=(int)(Math.random()*2);
+        int ale=(int)(Math.random()*10);
         switch (ale) {
             case 0:
                 numeroRecordar = numeroRecordar + "0";
