@@ -1,20 +1,24 @@
 package com.tutorialesprogramacionya.proyecto041;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button boton0, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9;
-    TextView tv1;
-    MediaPlayer mp1;
-    String numeroRecordar;                //  "01111"
-    String numeroJugador;
+    private Button boton0, boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9;
+    private TextView tv1;
+    private MediaPlayer mp1;
+    private String numeroRecordar;                //  "01111"
+    private String numeroJugador;
+    private boolean dificultad = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,24 @@ public class MainActivity extends AppCompatActivity {
         boton9=findViewById(R.id.boton9);
         tv1=findViewById(R.id.tv1);
         desactivarBotones();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.difficultSwitch:
+                this.dificultad = !item.isChecked();
+                item.setChecked(this.dificultad);
+                this.tv1.setText(String.valueOf(this.dificultad));
+                return true;
+            default:
+                return false;
+        }
     }
 
     private void desactivarBotones() {
