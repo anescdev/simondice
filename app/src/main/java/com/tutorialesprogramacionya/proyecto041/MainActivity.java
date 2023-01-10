@@ -46,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.difficultSwitch:
-                this.dificultad = !item.isChecked();
-                item.setChecked(this.dificultad);
-                this.tv1.setText(String.valueOf(this.dificultad));
+                this.dificultad = !this.dificultad;
+                if (this.dificultad==true)
+                    item.setTitle("Modo fácil");
+                else
+                    item.setTitle("Modo difícil");
                 return true;
             default:
                 return false;
