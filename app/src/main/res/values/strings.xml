@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Simon Android</string>
+    <string name="dificultad_switch">Difícil</string>
 </resources>
