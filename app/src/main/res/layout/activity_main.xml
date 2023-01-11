@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    android:visibility="visible"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tv1"
@@ -22,19 +23,22 @@
         android:text="Iniciar juego" />
 
     <TableLayout
+        android:id="@+id/contenedorBotones"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:alpha="0">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/boton0"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton0"
+                android:onClick="presionBoton"
                 android:text="0"
                 android:textSize="100dp" />
 
@@ -43,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton1"
+                android:onClick="presionBoton"
                 android:text="1"
                 android:textSize="100dp" />
 
@@ -52,21 +56,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton2"
+                android:onClick="presionBoton"
                 android:text="2"
                 android:textSize="100dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/boton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton3"
+                android:onClick="presionBoton"
                 android:text="3"
                 android:textSize="100dp" />
 
@@ -75,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton4"
+                android:onClick="presionBoton"
                 android:text="4"
                 android:textSize="100dp" />
 
@@ -84,21 +88,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton5"
+                android:onClick="presionBoton"
                 android:text="5"
                 android:textSize="100dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/boton6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton6"
+                android:onClick="presionBoton"
                 android:text="6"
                 android:textSize="100dp" />
 
@@ -107,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton7"
+                android:onClick="presionBoton"
                 android:text="7"
                 android:textSize="100dp" />
 
@@ -116,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="presionBoton8"
+                android:onClick="presionBoton"
                 android:text="8"
                 android:textSize="100dp" />
         </TableRow>
@@ -131,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fitsSystemWindows="false"
-                android:onClick="presionBoton9"
+                android:onClick="presionBoton"
                 android:text="9"
                 android:textSize="100dp" />
         </TableRow>
