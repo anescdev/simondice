@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer mp1;
     private String numeroRecordar;                //  "01111"
     private String numeroJugador;
-    private boolean dificultad = false;
+    private boolean dificil = false;
+    private MenuItem difficultItemMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,21 +41,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         this.getMenuInflater().inflate(R.menu.menu, menu);
+        this.difficultItemMenu = menu.getItem(0);
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.difficultSwitch:
-                this.dificultad = !this.dificultad;
-                if (this.dificultad==true)
-                    item.setTitle("Modo fácil");
-                else
-                    item.setTitle("Modo difícil");
-                return true;
-            default:
-                return false;
+        if (item.getItemId() == R.id.difficultSwitch) {
+            this.dificil = !this.dificil;
+            if (this.dificil)
+                item.setTitle("Modo fácil");
+            else
+                item.setTitle("Modo difícil");
+            return true;
         }
+        return false;
     }
 
     private void desactivarBotones() {
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         tv1.setText("Cantidad de cifras a recordar:"+numeroRecordar.length());
         numeroJugador="";
         emitirSonido(0);
+        this.difficultItemMenu.setEnabled(false);
     }
 
     private void emitirSonido(int posicion) {
@@ -130,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
        }
         assert mp1 != null;
         mp1.setVolume(1.0f,1.0f);
+        if (this.dificil){
+            mp1.setPlaybackParams(mp1.getPlaybackParams().setSpeed(2.5f));
+        }
         mp1.start();
         mp1.setOnCompletionListener((mediaPlayer -> {
             if (posicion<numeroRecordar.length()-1) {
@@ -232,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
         if (numeroJugador.charAt(numeroJugador.length()-1)!=numeroRecordar.charAt(numeroJugador.length()-1))
         {
             Toast.makeText(this,"Perdiste",Toast.LENGTH_LONG).show();
+            this.difficultItemMenu.setEnabled(true);
             desactivarBotones();
         }
         else
